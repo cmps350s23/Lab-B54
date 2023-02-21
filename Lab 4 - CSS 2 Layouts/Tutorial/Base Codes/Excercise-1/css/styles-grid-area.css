@@ -79,22 +79,29 @@ footer {
 }
 
 @media screen and (min-width: 40rem) {
-  header {
-    border-right: 1px solid red;
-  }
   .container {
     display: grid;
     height: 100vh;
     grid-template-columns: 1fr 5fr;
     grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      "header  nav"
+      "main    main"
+      "footer  footer";
+  }
+  header {
+    grid-area: header;
+    border-right: 1px solid red;
+  }
+  nav {
+    grid-area: nav;
   }
   main {
-    grid-column: 1/3;
+    grid-area: main;
     height: 100%;
   }
-
   footer {
-    grid-column: 1/3;
+    grid-area: footer;
   }
 
   nav ul {
@@ -114,10 +121,13 @@ footer {
 }
 
 @media screen and (min-width: 50rem) {
-  main {
-    grid-column: 2/3;
-    grid-row: 1/3;
+  .container {
+    grid-template-areas:
+      "header  main"
+      "nav    main"
+      "footer  footer";
   }
+
   nav ul {
     display: block;
   }
