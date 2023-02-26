@@ -138,5 +138,46 @@ sliced = numbers.slice(2, 4);
 console.log("After slicing", sliced);
 console.log("After numbers", numbers);
 
-numbers.splice(3, 2);
+splice = numbers.splice(3, 2);
+console.log("After splice", splice);
 console.log("After splice", numbers);
+
+// squareValue = function (a) {
+//   return a ** 2;
+// };
+
+(a) => a ** 2;
+
+function squareValue(a) {
+  return a ** 2;
+}
+
+squared = numbers.map((a) => a ** 2);
+negated = numbers.map((a) => -a);
+
+filtered = numbers.filter((a) => a % 2 == 0);
+gthan50 = numbers.filter((a) => a > 50);
+findTwo = numbers.find((a) => a == 2);
+
+console.log("------------------------");
+console.log("Original Array", numbers);
+console.log("------------------------");
+console.log("Squared", squared);
+console.log("negated", negated);
+console.log("filtered", filtered);
+console.log("gthan50", gthan50);
+console.log("findTwo", findTwo);
+
+numbers.forEach((a) => a);
+
+// for (let a in numbers) {
+//   console.log(a);
+// }
+
+reducerFunction = function (acc, curr) {
+  return acc * curr;
+};
+
+multiAll = numbers.reduce((acc, curr) => acc + curr, 1);
+
+console.log(multiAll);
