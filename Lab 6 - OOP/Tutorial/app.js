@@ -1,0 +1,1 @@
+import Bank from "./model/bank.js";
