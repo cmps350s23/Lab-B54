@@ -1,10 +1,14 @@
 export default class Bank {
+    static count = 0
     constructor(accounts) {
         this.accounts = accounts;
+        this._unknown = 123
     }
 
     addAccount(account) {
         this.accounts.push(account)
+        Bank.count++;
+
     }
 
     getAccount(accountNo) {
