@@ -7,7 +7,12 @@ const factsArea = document.querySelector("#facts-area")
 const regionURL = 'https://restcountries.com/v3.1/region/'
 const countryURL = 'https://restcountries.com/v3.1/name/'
 
-function handleRegionChange() {
+async function handleRegionChange() {
     const url = `${regionURL}${regionList.value}`
-    console.log(url);
+    // Get data from a server [API] Application programable interface
+    const data = await fetch(url)
+    const countries = await data.json()
+    const countryOptions = countries.map(country => `<option value="${country.name.common}">${country.name.common}</option>`)
+
+    countryDD.innerHTML = countryOptions.join(' ')
 }
