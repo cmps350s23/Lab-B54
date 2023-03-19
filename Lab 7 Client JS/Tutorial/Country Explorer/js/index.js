@@ -43,7 +43,7 @@ function countryToFacts(country) {
                     </tr>
                     <tr>
                         <th>Capital City</th>
-                        <td>${country.name.official}</td>
+                        <td>${country.capital}</td>
                     </tr>
                     <tr>
                         <th>Currency</th>
