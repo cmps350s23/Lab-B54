@@ -12,9 +12,11 @@ async function handleRegionChange() {
     // Get data from a server [API] Application programable interface
     const data = await fetch(url)
     const countries = await data.json()
-    const countryOptions = countries.map(country => `<option value="${country.name.common}">${country.name.common}</option>`)
+    const countryOptions = countries.map(country => `<option value="${country.name.common}">${country.name.common}</option>
+`)
 
     countryDD.innerHTML = countryOptions.join(' ')
+    handleCountryChange()
 }
 
 async function handleCountryChange() {
@@ -26,8 +28,35 @@ async function handleCountryChange() {
 }
 
 function countryToFacts(country) {
+    const currKey = Object.keys(country.currencies)[0]
+
     return `
-        <h3><u>Facts about ${country.name.common}</u></h2>
-        <img src="${country.flags.png}" alt="${country.flags.alt}">
+<h3><u>Facts about ${country.name.common}</u></h2>
+    <img src="${country.flags.png}" alt="${country.flags.alt}">
+    <br>
+    <table>
+        <tr>
+            <th>Official Country Name</th>
+            <td>${country.name.official}</td>
+        </tr>
+        <tr>
+            <th>Capital City</th>
+            <td>${country.name.official}</td>
+        </tr>
+        <tr>
+            <th>Currency</th>
+            <td>${country.currencies[currKey].name}</td>
+        </tr>
+        <tr>
+            <th>Population</th>
+            <td>${country.population}</td>
+        </tr>
+        <tr>
+            <th>Language</th>
+            <td></td>
+        </tr>
+    </table>
     `
 }
+
+
