@@ -16,3 +16,18 @@ async function handleRegionChange() {
 
     countryDD.innerHTML = countryOptions.join(' ')
 }
+
+async function handleCountryChange() {
+    const url = `${countryURL}${countryDD.value}`
+    // Get data from a server [API] Application programable interface
+    const data = await fetch(url)
+    const country = await data.json()
+    factsArea.innerHTML = countryToFacts(country[0])
+}
+
+function countryToFacts(country) {
+    return `
+        <h3><u>Facts about ${country.name.common}</u></h2>
+        <img src="${country.flags.png}" alt="${country.flags.alt}">
+    `
+}
