@@ -29,33 +29,35 @@ async function handleCountryChange() {
 
 function countryToFacts(country) {
     const currKey = Object.keys(country.currencies)[0]
+    const langKeys = Object.keys(country.languages)
+    const languages = langKeys.map(key => country.languages[key]).join(' ')
 
     return `
-<h3><u>Facts about ${country.name.common}</u></h2>
-    <img src="${country.flags.png}" alt="${country.flags.alt}">
-    <br>
-    <table>
-        <tr>
-            <th>Official Country Name</th>
-            <td>${country.name.official}</td>
-        </tr>
-        <tr>
-            <th>Capital City</th>
-            <td>${country.name.official}</td>
-        </tr>
-        <tr>
-            <th>Currency</th>
-            <td>${country.currencies[currKey].name}</td>
-        </tr>
-        <tr>
-            <th>Population</th>
-            <td>${country.population}</td>
-        </tr>
-        <tr>
-            <th>Language</th>
-            <td></td>
-        </tr>
-    </table>
+            <h3><u>Facts about ${country.name.common}</u></h2>
+                <img src="${country.flags.png}" alt="${country.flags.alt}">
+                <br>
+                <table>
+                    <tr>
+                        <th>Official Country Name</th>
+                        <td>${country.name.official}</td>
+                    </tr>
+                    <tr>
+                        <th>Capital City</th>
+                        <td>${country.name.official}</td>
+                    </tr>
+                    <tr>
+                        <th>Currency</th>
+                        <td>${country.currencies[currKey].name}</td>
+                    </tr>
+                    <tr>
+                        <th>Population</th>
+                        <td>${country.population}</td>
+                    </tr>
+                    <tr>
+                        <th>Language</th>
+                        <td>${languages}</td>
+                    </tr>
+                </table>
     `
 }
 
