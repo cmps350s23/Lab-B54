@@ -1,4 +1,9 @@
+import AccountRepo from "../account-repo.js"
+const repo = new AccountRepo()
+
 export async function GET(request, { params }) {
     const { id } = params
-    return new Response('Hello, I am the accounts route with ID!' + id)
+    const account = await repo.getAccountById(id)
+    return Response.json(account, { status: 200 })
+
 }

@@ -1,10 +1,14 @@
 // npm i fs-extra   
+import AccountRepo from "./account-repo.js";
+const repo = new AccountRepo();
 
 export async function GET(request) {
     const { searchParams } = new URL(request.url)
     const type = searchParams.get('type')
-    console.log(searchParams);
-    return new Response('Hello, I am the accounts route!' + type)
+
+    const accounts = await repo.getAccounts(type)
+
+    return Response.json(accounts, { status: 200 })
 }
 
 export async function POST(request) {

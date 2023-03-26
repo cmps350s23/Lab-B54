@@ -11,4 +11,9 @@ export default class AccountRepo {
         else
             return accounts
     }
+
+    async getAccountById(id) {
+        const accounts = await fs.readJSON(this.filepath)
+        return accounts.find(account => account.accountNo == id)
+    }
 }
