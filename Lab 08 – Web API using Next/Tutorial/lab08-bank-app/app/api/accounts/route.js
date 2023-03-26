@@ -13,6 +13,6 @@ export async function GET(request) {
 
 export async function POST(request) {
     const account = await request.json()
-    console.log(account);
-    return new Response('Thanks for posting a new account!')
+    await repo.addAccount(account)
+    return new Response('Successfully added the account')
 }
