@@ -1,0 +1,27 @@
+<form id="product-form" action="#">
+    <div>
+        <label for="image">Game Image URL:</label>
+        <input type="url" id="image" name="image" required>
+    </div>
+    <div class="form-group">
+        <label for="name">Game Name</label>
+        <input type="text" id="name" name="name" required>
+    </div>
+
+    <div>
+        <label for="price">Price</label>
+        <input type="number" id="price" name="price" required></input>
+    </div>
+    <div>
+        <label for="availability">Availability</label>
+        <input type="radio" name="availability" required><label for="">Yes</label></input>
+        <input type="radio" name="availability" required><label for="">No</label></input>
+    </div>
+
+    <div>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" rows="5" required></textarea>
+    </div>
+
+    <input type="submit" id="add-product-btn" value="Add Product">
+</form>

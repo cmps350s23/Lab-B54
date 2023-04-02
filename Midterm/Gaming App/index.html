@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <nav class="navMenu">
+        <img src="img/logo.png" alt="" class="logo">
+        <div>
+            <a href="/">Products </a>
+            <a href="#" onclick="loadPage('form.html')">Add</a>
+        </div>
+    </nav>
+    <hr>
+    <br>
+    <div id="main-content">
+        <div>
+            <label for="">Filter By Availability</label>
+            <select name="availability" id="">
+                <option value="all">All</option>
+                <option value="available">Available</option>
+                <option value="unavailable">Not Available</option>
+            </select>
+        </div>
+        <br>
+        <div class="card-list">
+            <div class="card" id="">
+                <div class="card-image">
+                    <img src="https://cdn1.epicgames.com/f4a904fcef2447439c35c4e6457f3027/offer/DS_wide-2560x1440-c3d7bbf8ee36dd025610088381a5235a.jpg"
+                        alt="London trip">
+                </div>
+
+                <div class="card-body">
+                    <span class="price">Price : 22 QAR</span>
+                    <hr class="dark-line">
+                    <h2>PLACEHOLDER NAME</h2>
+                    <p>PLACEHOLDER Description</p>
+                </div>
+                <button class="delete-btn" onclick="">Delete
+                </button>
+            </div>
+            <div class="card" id="">
+                <div class="card-image">
+                    <img src="https://cdn1.epicgames.com/f4a904fcef2447439c35c4e6457f3027/offer/DS_wide-2560x1440-c3d7bbf8ee36dd025610088381a5235a.jpg"
+                        alt="London trip">
+                </div>
+
+                <div class="card-body">
+                    <span class="price">Price : 22 QAR</span>
+                    <hr class="dark-line">
+                    <h2>FAKE NAME</h2>
+                    <p>FAKE Description</p>
+                </div>
+                <button class="delete-btn" onclick="">Delete
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

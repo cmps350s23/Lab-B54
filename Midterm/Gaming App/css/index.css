@@ -1,0 +1,209 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    min-height: 100vh;
+    width: 100%;
+    background: linear-gradient(20deg, #333, rgb(105, 105, 105));
+    padding: 0 50px;
+}
+
+/* TODO add grid layout for the card-list class 5 points */
+.card-list {
+    /* add the missing code to make the elements appear in grid dynamically 
+        you should use the RAM technique to make the grid responsive
+   */
+}
+
+.card,
+.card-body,
+.card-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card {
+    border-radius: 18px;
+    background: #fff;
+    box-shadow: 4px 4px 25px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.4s;
+    grid-auto-rows: 1fr;
+
+
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 4px 4px 25px rgba(0, 0, 0, 0.2);
+}
+
+.card-image {
+    display: block;
+    position: relative;
+    height: 180px;
+    width: 100%;
+
+}
+
+.card-image img {
+    max-height: 100%;
+    width: 100%;
+    background-size: cover;
+}
+
+.card-body {
+    padding: 20px 28px;
+}
+
+.card-body .price {
+    font-weight: bolder;
+    font-size: 1.5rem;
+}
+
+.card-body h2 {
+    font-size: 1.8em;
+    margin: 2px auto 12px;
+}
+
+.card-body p {
+    color: gray;
+    font-size: 1.1em;
+    line-height: 22px;
+    text-align: justify;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+
+}
+
+
+.delete-btn {
+    font-size: 0.9em;
+    padding: 10px;
+    color: #fff;
+    width: 100%;
+    border: none;
+    text-transform: uppercase;
+    margin-top: 2px;
+    background: #ff0c71;
+}
+
+.delete-btn:hover {
+    color: #fddb3a;
+    text-decoration: underline;
+}
+
+.card:nth-child(1) .price {
+    color: #ff0c71;
+}
+
+/* Navigation */
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    color: #fddb3a;
+    margin: 1rem;
+}
+
+.navMenu a {
+    color: #f6f4e6;
+    text-decoration: none;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+    display: inline-block;
+    width: 80px;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    margin: 1rem;
+}
+
+.navMenu a:hover {
+    color: #fddb3a;
+}
+
+.dark-line {
+    background-color: #070706;
+    height: 2px;
+    width: 100%;
+    margin: 0.5rem;
+
+}
+
+/* Styles for the form */
+.title {
+    text-align: center;
+    font-size: 4rem;
+    font-weight: bold;
+    padding: 20px;
+}
+
+input[type=text],
+input[type=url],
+input[type=number],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+    font-weight: bold;
+    color: whitesmoke;
+}
+
+input[type=submit] {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    margin-top: 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+/* Add media query to handle the navigation menu */
+@media screen and (max-width: 600px) {
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    nav div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+    }
+}
