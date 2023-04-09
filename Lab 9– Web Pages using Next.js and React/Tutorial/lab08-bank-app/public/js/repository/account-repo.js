@@ -5,6 +5,7 @@ class AccountRepo {
     async getAccounts(acctType) {
         const response = await fetch(`/api/accounts?type=${acctType}`)
         return await response.json()
+
     }
 
     async deleteAccount(accountNo) {
