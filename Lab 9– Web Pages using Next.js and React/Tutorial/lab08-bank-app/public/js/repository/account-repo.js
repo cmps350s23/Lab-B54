@@ -9,23 +9,24 @@ class AccountRepo {
 
     async deleteAccount(accountNo) {
         const response = await fetch(`/api/accounts/${accountNo}`, {
-            method: DELETE
+            method: 'DELETE'
         })
         return response.json()
     }
 
     async addAccount(account) {
         const response = await fetch(baseUrl, {
-            method: POST,
+            method: 'POST',
             body: JSON.stringify(account),
             headers: { 'Content-Type': 'application/json' }
         })
+
         return response.json()
     }
 
     async updateAccount(account) {
         const response = await fetch(`${baseUrl}/${account.accountNo}`, {
-            method: PUT,
+            method: 'PUT',
             body: JSON.stringify(account),
             headers: { 'Content-Type': 'application/json' }
         })
@@ -34,7 +35,7 @@ class AccountRepo {
 
     async addTrans(trans) {
         const response = await fetch(`${baseUrl}/${account.accountNo}/trans`, {
-            method: POST,
+            method: 'POST',
             body: JSON.stringify(trans),
             headers: { 'Content-Type': 'application/json' }
         })
