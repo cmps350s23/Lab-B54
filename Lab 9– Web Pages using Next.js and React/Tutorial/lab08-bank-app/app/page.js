@@ -1,14 +1,15 @@
 import { Inter } from 'next/font/google'
-import AccountsRepo from './api/accounts/accounts-repo'
-import Link from 'next/link'
+import AccountsTable from './accounts/AccountsTable'
+import accountsRepo from './api/accounts/accounts-repo'
 
 const inter = Inter({ subsets: ['latin'] })
 
+
 export default async function Home() {
-  const initialAccounts = await new AccountsRepo().getAccounts()
+  const accounts = await accountsRepo.getAccounts()
+
   return (
     <div>
-
       <main id="main">
         <label htmlFor="acctType"> Account Type</label>
         <select id="acctType" className="dropdown">
@@ -16,7 +17,7 @@ export default async function Home() {
           <option value="Saving">Saving</option>
           <option value="Current">Current</option>
         </select>
-        <div id="accounts-table"></div>
+        <AccountsTable initialAccounts={accounts}></AccountsTable>
       </main>
     </div>
   )
