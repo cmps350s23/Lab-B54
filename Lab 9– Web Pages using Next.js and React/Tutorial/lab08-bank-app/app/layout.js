@@ -1,5 +1,6 @@
 import './globals.css'
 import Link from 'next/link'
+import styles from './page.module.css'
 
 export const metadata = {
   title: 'Create Next App',
@@ -13,7 +14,7 @@ export default function RootLayout({ children }) {
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" />
       </head>
       <body>
-        <nav>
+        <nav className={styles.nav}>
           <ul>
             <li>Alpha Bank</li>
             <li>

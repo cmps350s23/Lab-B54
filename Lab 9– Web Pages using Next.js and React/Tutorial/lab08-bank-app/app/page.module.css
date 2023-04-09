@@ -9,7 +9,7 @@
   padding: 1em;
 }
 
-.form select,
+.select,
 .form input {
   border: 1px solid #c9e6ff;
 }
@@ -76,6 +76,10 @@
   .form button {
     grid-column: 2 / 3;
     justify-self: center;
+  }
+
+  .nav {
+    background-color: #c9e6ff;
   }
 
   .nav div {
