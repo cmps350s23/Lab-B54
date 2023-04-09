@@ -34,7 +34,7 @@ class AccountRepo {
     }
 
     async addTrans(trans) {
-        const response = await fetch(`${baseUrl}/${account.accountNo}/trans`, {
+        const response = await fetch(`${baseUrl}/${trans.accountNo}/trans`, {
             method: 'POST',
             body: JSON.stringify(trans),
             headers: { 'Content-Type': 'application/json' }
