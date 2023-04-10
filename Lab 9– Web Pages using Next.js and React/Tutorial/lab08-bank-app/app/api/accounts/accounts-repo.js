@@ -8,7 +8,16 @@ class AccountsRepo {
         this.filePath = path.join(process.cwd(), 'app/data/accounts.json')
     }
 
+    async isAuthenticUser(username, password) {
+        const accounts = await fs.readJSON(this.filePath)
+        const account = accounts.find(acc => acc.username == username && acc.password == password)
+        if (account)
+            return true;
+        return false;
+    }
+
     async getAccounts(type) {
+        
         const accounts = await fs.readJSON(this.filePath)
         if (type == 'Saving' || type == 'Current')
             return accounts.filter(account => account
