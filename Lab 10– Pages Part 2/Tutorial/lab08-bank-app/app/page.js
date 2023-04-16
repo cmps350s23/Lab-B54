@@ -1,5 +1,5 @@
 import { Inter } from 'next/font/google'
-import AccountsTable from './accounts/AccountsTable'
+import AccountsTable from './accounts/AccountsTable.jsx'
 import accountsRepo from './api/accounts/accounts-repo'
 
 const inter = Inter({ subsets: ['latin'] })
