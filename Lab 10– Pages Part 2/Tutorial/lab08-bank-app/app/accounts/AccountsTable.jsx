@@ -37,9 +37,11 @@ export default function AccountsTable({ initialAccounts }) {
                     </tr>
                 </thead>
                 <tbody>
-                    {accounts.map(account => <Account account={account}
-                        onDelete={handleDelete}
-                        key={account.accountNo}> </Account>)}
+                    {
+                        accounts.map(account => <Account account={account}
+                            onDelete={handleDelete}
+                            key={account.accountNo}> </Account>)
+                    }
                 </tbody>
             </table>
         </main>
