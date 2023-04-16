@@ -17,7 +17,7 @@ class AccountsRepo {
     }
 
     async getAccounts(type) {
-        
+
         const accounts = await fs.readJSON(this.filePath)
         if (type == 'Saving' || type == 'Current')
             return accounts.filter(account => account
@@ -33,15 +33,15 @@ class AccountsRepo {
         return account
     }
 
-    async updateAccount(account) {
+    async updateAccount(accountNo, account) {
         const accounts = await fs.readJson(this.filePath)
-        const index = accounts.findIndex(acc => acc.accountNo == account.accountNo)
-        if (index > 0) {
-            accounts[index] = account
-            await fs.writeJson(this.filePath, accounts)
-            return "updated successfully"
-        }
-        return "Unable to update account because it does not exist"
+        const index = accounts.findIndex(acc => acc.accountNo == accountNo)
+        if (index < 0)
+            return "Unable to update account because it does not exist"
+
+        accounts[index] = { ...accounts[index], ...account }
+        await fs.writeJson(this.filePath, accounts)
+        return "updated successfully"
     }
 
     async getAccount(accNo) {

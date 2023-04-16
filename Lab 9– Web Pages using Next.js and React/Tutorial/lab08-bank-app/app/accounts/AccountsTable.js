@@ -2,6 +2,7 @@ import React from 'react'
 import Account from './Account'
 import styles from '../page.module.css'
 
+
 export default function AccountsTable({ initialAccounts }) {
     return (
         <div>
@@ -14,6 +15,7 @@ export default function AccountsTable({ initialAccounts }) {
                 </tr>
                 {initialAccounts.map(account => <Account account={account}> </Account>)}
             </table>
+
         </div>
     )
 }
