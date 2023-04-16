@@ -10,15 +10,9 @@ export default async function Home() {
 
   return (
     <div>
-      <main id="main">
-        <label htmlFor="acctType"> Account Type</label>
-        <select id="acctType" className="dropdown">
-          <option value="All">All</option>
-          <option value="Saving">Saving</option>
-          <option value="Current">Current</option>
-        </select>
-        <AccountsTable initialAccounts={accounts}></AccountsTable>
-      </main>
+
+      <AccountsTable initialAccounts={accounts}></AccountsTable>
+
     </div>
   )
 }

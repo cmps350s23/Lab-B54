@@ -5,7 +5,14 @@ import styles from '../page.module.css'
 
 export default function AccountsTable({ initialAccounts }) {
     return (
-        <div>
+        <main id="main">
+            <label htmlFor="acctType"> Account Type</label>
+
+            <select id="acctType" className="dropdown">
+                <option value="All">All</option>
+                <option value="Saving">Saving</option>
+                <option value="Current">Current</option>
+            </select>
             <table id="accounts" className={styles.table}>
                 <tr>
                     <th>Account No</th>
@@ -15,7 +22,6 @@ export default function AccountsTable({ initialAccounts }) {
                 </tr>
                 {initialAccounts.map(account => <Account account={account}> </Account>)}
             </table>
-
-        </div>
+        </main>
     )
 }
