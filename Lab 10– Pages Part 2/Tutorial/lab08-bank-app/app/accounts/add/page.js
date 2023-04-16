@@ -1,9 +1,11 @@
 'use client'
 import React, { useState } from 'react'
 import styles from '../../page.module.css'
+import { useRouter } from 'next/navigation'
 
 export default function AddAccount() {
     const [account, setAccount] = useState({})
+    const router = useRouter()
 
     function handleChange(e) {
         const newAccount = { ...account }
@@ -12,19 +14,20 @@ export default function AddAccount() {
     }
     async function handleSubmit(e) {
         e.preventDefault()
+
         const data = await fetch('/api/accounts', {
             method: 'POST',
             body: JSON.stringify(account),
             headers: { 'Content-Type': 'application/json' }
         })
+
         const newAccount = await data.json()
-        console.log(newAccount);
+        router.push('/', { shallow: true })
     }
 
     return (
         <>
-            {JSON.stringify(account)}
-            <h3>Add Account</h3>
+            <h3 className={styles.title}>Add Account</h3>
             <form id="account-form" className={styles.form} onSubmit={handleSubmit}>
                 <label htmlFor="acctType" className={styles.label}>Account Type</label>
                 <select name="acctType" id="acctType" required onChange={handleChange}>
