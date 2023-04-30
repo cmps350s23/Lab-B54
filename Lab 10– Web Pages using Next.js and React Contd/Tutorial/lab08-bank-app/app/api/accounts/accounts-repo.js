@@ -63,6 +63,7 @@ class AccountsRepo {
         console.log(transaction);
         transaction.accountNo = parseInt(transaction.accountNo.toString());
         transaction.amount = parseInt(transaction.amount.toString());
+
         try {
             const accounts = await this.getAccounts();
             const account = accounts.find(account => account.accountNo == transaction.accountNo);

@@ -13,16 +13,15 @@ datasource db {
 // here we will create our models [tables inside the database]
 
 model Account {
-  accountNo      String        @id
-  acctType       String
-  balance        Float
-  minimumBalance Float?
-  transactions   Transaction[]
+  accountNo    String        @id
+  acctType     String
+  balance      Float
+  transactions Transaction[]
 }
 
 model Transaction {
   id        Int    @id @default(autoincrement())
-  transType Float
+  transType String
   amount    Float
   accountNo String
 
