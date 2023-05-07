@@ -12,7 +12,7 @@ export async function POST(request) {
 
     const query = await request.json()
     // console.log(query);
-    const report = await repo.getTransSum(query.ownerId)
+    const report = await repo.getAvgBalance()
     return Response.json(report)
 
 }

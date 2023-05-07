@@ -163,7 +163,7 @@ export default class AccountsRepo {
 
     async getOwners() {
         try {
-
+            return await prisma.owner.findMany()
         } catch (error) {
             console.log(error);
             return { error: error.message }
@@ -188,7 +188,10 @@ export default class AccountsRepo {
     }
     async getAvgBalance() {
         try {
-
+            return await prisma.account.groupBy({
+                by: ['acctType'],
+                _avg: { balance: true }
+            })
         } catch (error) {
             console.log(error);
             return { error: error.message }
