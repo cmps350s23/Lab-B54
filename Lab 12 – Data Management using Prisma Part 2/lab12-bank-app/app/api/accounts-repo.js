@@ -188,10 +188,14 @@ export default class AccountsRepo {
     }
     async getAvgBalance() {
         try {
-            return await prisma.account.groupBy({
+            const avgBalance = await prisma.account.groupBy({
                 by: ['acctType'],
                 _avg: { balance: true }
             })
+
+
+            return avgBalance
+
         } catch (error) {
             console.log(error);
             return { error: error.message }
@@ -200,7 +204,12 @@ export default class AccountsRepo {
 
     async getMinMaxBalance() {
         try {
-
+            const minMaxBalance = await prisma.account.aggregate({
+                _max: { balance: true },
+                _min: { balance: true },
+            })
+            console.log(minMaxBalance);
+            return minMaxBalance
         } catch (error) {
             console.log(error);
             return { error: error.message }
@@ -209,7 +218,12 @@ export default class AccountsRepo {
 
     async getTop3Accounts() {
         try {
-
+            const topThreeAccounts = await prisma.account.findMany({
+                orderBy: { balance: 'asc' },
+                take: 3
+            })
+            console.log(topThreeAccounts);
+            return topThreeAccounts
         } catch (error) {
             console.log(error);
             return { error: error.message }

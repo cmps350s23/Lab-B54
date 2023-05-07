@@ -12,7 +12,9 @@ export async function POST(request) {
 
     const query = await request.json()
     // console.log(query);
-    const report = await repo.getAvgBalance()
+    // const report = await repo.getAvgBalance()
+    // const report = await repo.getMinMaxBalance()
+    const report = await repo.getTop3Accounts()
     return Response.json(report)
 
 }
