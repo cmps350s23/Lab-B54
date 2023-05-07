@@ -7,14 +7,44 @@ import { AccountType } from '@prisma/client'
 import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
+const ownersPath = path.join(process.cwd(), 'app/data/owners.json')
+const accountsPath = path.join(process.cwd(), 'app/data/accounts.json')
+const transPath = path.join(process.cwd(), 'app/data/trans.json')
+
 export default class AccountsRepo {
     constructor() {
 
     }
 
+    async initDB() {
+        try {
+            const owners = await fs.readJSON(ownersPath)
+            const accounts = await fs.readJSON(accountsPath)
+            const transactions = await fs.readJSON(transPath)
+
+            console.log(owners);
+            console.log(accounts);
+            console.log(transactions);
+
+            // // createMany is not supported for SQLite. Use create instead
+            for (const owner of owners) await prisma.owner.create({ data: owner })
+            for (const account of accounts) await prisma.account.create({ data: account })
+            for (const transaction of transactions) await prisma.transaction.create({ data: transaction })
+
+
+        } catch (error) {
+            console.log(error);
+            return { error: error.message }
+        }
+    }
+
     async getAccounts(type) {
         try {
-            await this.getOwners()
+            if (await prisma.owner.count() == 0)
+                this.initDB()
+            else
+                console.log('Database already initialized');
+
             let accounts = []
             if (type == 'Savings' || type == 'Current') {
                 console.log('I am inside getAccounts trying to query the database', type);
@@ -132,7 +162,6 @@ export default class AccountsRepo {
 
 
     async getOwners() {
-
         try {
 
         } catch (error) {
