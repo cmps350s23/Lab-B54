@@ -3,6 +3,7 @@ import path from 'path'
 import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
+
 const ownersPath = path.join(process.cwd(), 'app/data/owners.json')
 const accountsPath = path.join(process.cwd(), 'app/data/accounts.json')
 const transPath = path.join(process.cwd(), 'app/data/trans.json')
