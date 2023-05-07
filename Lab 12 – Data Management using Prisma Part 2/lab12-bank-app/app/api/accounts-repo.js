@@ -172,7 +172,17 @@ export default class AccountsRepo {
 
     async getOwnerReport(ownerId) {
         try {
+            const ownerReport = await prisma.owner.findUnique({
+                where: { id: ownerId },
+                include: {
+                    accounts: {
+                        include: { transactions: true }
+                    }
+                }
+            })
+            console.log(JSON.stringify(ownerReport, null, 2));
 
+            return ownerReport
         } catch (error) {
             console.log(error);
             return { error: error.message }
@@ -180,6 +190,20 @@ export default class AccountsRepo {
     }
     async getTransSum(accountNo, fromDate, toDate) {
         try {
+            const transSum = await prisma.transaction.groupBy({
+                where: {
+                    accountNo: 'asw2rtyuio0',
+                    date: {
+                        gte: new Date('2021-05-16T10:00:00.000Z').toISOString(),
+                        lte: new Date('2021-11-16T10:00:00.000Z').toISOString()
+                    }
+
+                },
+                by: ['transType'],
+                _sum: { amount: true }
+            })
+            console.log(transSum);
+            return transSum
 
         } catch (error) {
             console.log(error);
