@@ -22,9 +22,9 @@ export default class AccountsRepo {
             const accounts = await fs.readJSON(accountsPath)
             const transactions = await fs.readJSON(transPath)
 
-            console.log(owners);
-            console.log(accounts);
-            console.log(transactions);
+            // console.log(owners);
+            // console.log(accounts);
+            // console.log(transactions);
 
             // // createMany is not supported for SQLite. Use create instead
             for (const owner of owners) await prisma.owner.create({ data: owner })
