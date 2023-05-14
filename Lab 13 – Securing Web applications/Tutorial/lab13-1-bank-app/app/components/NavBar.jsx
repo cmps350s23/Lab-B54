@@ -1,10 +1,12 @@
 import React from 'react'
 import Link from 'next/link'
 import styles from '../page.module.css'
+import SignInOutButton from './SignInOutButton'
 
 export default function NavBar() {
     return (
         <>
+            <SignInOutButton></SignInOutButton>
             <nav className={styles.nav}>
                 <ul>
                     <li>Alpha Bank</li>

@@ -1,5 +1,5 @@
-import CredentialsProvider from "next-auth/providers/credentials";
 import NextAuth from "next-auth/next";
+import CredentialsProvider from "next-auth/providers/credentials";
 
 const handler = NextAuth({
     providers: [
@@ -11,7 +11,7 @@ const handler = NextAuth({
             // e.g. domain, username, password, 2FA token, etc.
             // You can pass any HTML attribute to the <input> tag through the object.
             credentials: {
-                email: { label: "Email", type: "text", placeholder: "enter your name" },
+                email: { label: "Email", type: "text", placeholder: "enter your email" },
                 password: { label: "Password", type: "password", placeholder: "enter your password" }
             },
             async authorize(credentials, req) {
@@ -23,11 +23,14 @@ const handler = NextAuth({
                 })
 
                 const user = await response.json()
+                console.log(user)
 
                 if (user && !user.error) {
+                    console.log(user);
                     // Any object returned will be saved in `user` property of the JWT
                     return user
                 } else {
+                    console.log('bad user');
                     // If you return null then an error will be displayed advising the user to check their details.
                     return null
                     // You can also Reject this callback with an Error thus the user will be sent to the error page with the error message as a query parameter
@@ -35,6 +38,6 @@ const handler = NextAuth({
             }
         })
     ]
-})
+});
 
 export { handler as GET, handler as POST }

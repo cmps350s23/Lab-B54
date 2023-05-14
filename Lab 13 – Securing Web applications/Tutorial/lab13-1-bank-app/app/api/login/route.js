@@ -7,6 +7,7 @@ export async function POST(request) {
 
     if (response.error)
         return Response.json(response, { status: 401 })
+
     response.id_token = jwt.sign(response, process.env.SECRET_KEY, { expiresIn: '1h' })
 
     return Response.json(response, { status: 200 })

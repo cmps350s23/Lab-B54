@@ -1,6 +1,6 @@
 import './globals.css'
 import NavBar from './components/NavBar'
-import { Provider } from './components/Provider'
+import Provider from './components/Provider'
 
 export const metadata = {
   title: 'Create Next App',
@@ -17,7 +17,6 @@ export default function RootLayout({ children }) {
       </head>
       <body className='container'>
         <Provider>
-          {/* add provider code here */}
           <NavBar></NavBar>
           {children}
         </Provider>
