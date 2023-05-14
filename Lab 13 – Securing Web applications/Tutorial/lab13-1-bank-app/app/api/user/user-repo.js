@@ -23,8 +23,9 @@ export const getUser = async (email, password) => {
         if (!user) return { error: "User does not exist" }
 
         //add the bcrypt compare here
+        if (user.password != password) return { error: "Password is incorrect" }
 
-
+        delete user.password
         return user
     } catch (error) {
         return { error: error.message }
