@@ -1,12 +1,27 @@
 import { getAccounts, addAccount } from "../accounts-repo"
+import jwt from 'jsonwebtoken'
 
 export async function GET(request) {
-    const { searchParams } = new URL(request.url)
-    const type = searchParams.get('type')
+    try {
+        // check the token inside the header
 
-    const accounts = await getAccounts(type)
+        const authorization = request.headers.get('authorization')
 
-    return Response.json(accounts)
+        if (!authorization)
+            return Response.json({ error: "You need to provide authentication" }, { status: 401 })
+
+        // check if the token is valid
+        jwt.verify(authorization, process.env.SECRET_KEY)
+
+        const { searchParams } = new URL(request.url)
+        const type = searchParams.get('type')
+
+        const accounts = await getAccounts(type)
+
+        return Response.json(accounts)
+    } catch (error) {
+        return Response.json({ error: "Invalid Token" }, { status: 401 })
+    }
 }
 
 export async function POST(request) {
