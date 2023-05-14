@@ -1,14 +1,19 @@
 import prisma from "@/app/libs/prisma";
+import { hash, compare, genSalt } from "bcrypt";
 
 
 export const createUser = async (user) => {
     try {
         // before adding the user we need to hash the password
         // add the bcrypt hash here
+        const salt = await genSalt(10)
+        user.password = await hash(user.password, salt)
 
         const newUser = await prisma.user.create({
             data: user
         })
+
+        delete newUser.password
         return newUser
     } catch (error) {
         return { error: error.message }
