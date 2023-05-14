@@ -1,5 +1,6 @@
 import './globals.css'
 import NavBar from './components/NavBar'
+import { Provider } from './components/Provider'
 
 export const metadata = {
   title: 'Create Next App',
@@ -15,10 +16,11 @@ export default function RootLayout({ children }) {
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
       </head>
       <body className='container'>
-        {/* add provider code here */}
-        <NavBar></NavBar>
-        {children}
-
+        <Provider>
+          {/* add provider code here */}
+          <NavBar></NavBar>
+          {children}
+        </Provider>
       </body>
     </html>
   )
