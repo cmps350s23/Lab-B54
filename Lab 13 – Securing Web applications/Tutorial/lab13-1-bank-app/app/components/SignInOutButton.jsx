@@ -6,7 +6,10 @@ export default function SignInOutButton() {
     const { data: session } = useSession()
     if (session)
         return (
-            <div><button onClick={signOut}>Sign Out</button></div>
+            <div>
+                <p>Welcome {session.user.email.split('@')[0]}</p>
+                <button onClick={signOut}>Sign Out</button>
+            </div>
         )
     return (
         <div><button onClick={signIn}>Sign In</button></div>
