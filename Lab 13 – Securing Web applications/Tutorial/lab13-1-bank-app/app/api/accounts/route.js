@@ -5,13 +5,13 @@ export async function GET(request) {
     try {
         // check the token inside the header
 
-        const authorization = request.headers.get('authorization')
+        // const authorization = request.headers.get('authorization')
 
-        if (!authorization)
-            return Response.json({ error: "You need to provide authentication" }, { status: 401 })
+        // if (!authorization)
+        //     return Response.json({ error: "You need to provide authentication" }, { status: 401 })
 
-        // check if the token is valid
-        jwt.verify(authorization, process.env.SECRET_KEY)
+        // // check if the token is valid
+        // jwt.verify(authorization, process.env.SECRET_KEY)
 
         const { searchParams } = new URL(request.url)
         const type = searchParams.get('type')
