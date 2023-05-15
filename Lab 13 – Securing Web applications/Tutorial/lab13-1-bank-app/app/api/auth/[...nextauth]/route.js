@@ -1,7 +1,7 @@
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
 
-const handler = NextAuth({
+export const authOptions = {
     providers: [
         CredentialsProvider({
             // The name to display on the sign in form (e.g. "Sign in with...")
@@ -16,15 +16,23 @@ const handler = NextAuth({
             },
             async authorize(credentials, req) {
                 // Add logic here to look up the user from the credentials supplied
-                const response = await fetch("http://localhost:3000/api/login", {
+                // const HOST = req.headers.host || 'Not Defined';
+                // console.log('host is .....', HOST);
+                // const response = await fetch(`http://localhost:3002/api/login`, {
+                //     method: "POST",
+                //     body: JSON.stringify(credentials),
+                //     headers: { "Content-Type": "application/json" }
+                // })
+
+                const HOST = req.headers.host;
+                console.log('host is .....', HOST);
+                const response = await fetch(`http://${HOST}/api/login`, {
                     method: "POST",
                     body: JSON.stringify(credentials),
                     headers: { "Content-Type": "application/json" }
                 })
-
+                // http://localhost:3004
                 const user = await response.json()
-                console.log(user)
-
                 if (user && !user.error) {
                     console.log(user);
                     // Any object returned will be saved in `user` property of the JWT
@@ -37,7 +45,12 @@ const handler = NextAuth({
                 }
             }
         })
-    ]
-});
+    ],
+    pages: {
+        signIn: "/login"
+    }
+}
+
+const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST }

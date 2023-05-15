@@ -11,7 +11,4 @@ export default function SignInOutButton() {
                 <button onClick={signOut}>Sign Out</button>
             </div>
         )
-    return (
-        <div><button onClick={signIn}>Sign In</button></div>
-    )
 }
