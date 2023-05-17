@@ -1,19 +1,23 @@
 import prisma from "@/app/libs/prisma";
 
 export async function addTransaction(transaction, accountNo) {
-    transaction.amount = parseInt(transaction.amount.toString());
+
+    transaction.amount = +transaction.amount
+
     try {
-        const account = await getAccount(accountNo);
+        const account = await prisma.account.findUnique({ where: { accountNo } })
 
         if (transaction.transType == 'Deposit')
-            account.balance += parseInt(transaction.amount);
+            account.balance += transaction.amount;
         else
-            account.balance -= parseInt(transaction.amount);
+            account.balance -= transaction.amount;
 
-        await prisma.update({
+        await prisma.account.update({
             where: { accountNo },
             data: account
         });
+
+
 
         const newTransaction = await prisma.transaction.create({
             data: transaction
@@ -25,6 +29,7 @@ export async function addTransaction(transaction, accountNo) {
         }
 
     } catch (err) {
+        console.log(err);
         return {
             error: 'unable to execute the transaction successful',
             errorMessage: err.message
