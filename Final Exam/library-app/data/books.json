@@ -1,0 +1,58 @@
+[
+    {
+        "isbn": "cjv8ydhd30000000000000001",
+        "title": "Murder on the Orient Express",
+        "genre": "Mystery",
+        "price": 10.99,
+        "bookCover": "https://i0.wp.com/efsunland.com/wp-content/uploads/2017/01/murder-on-the-orient-express_cover.jpg?fit=969%2C1500&ssl=1",
+        "authorId": 1
+    },
+    {
+        "isbn": "cjv8yehd40000000000000002",
+        "title": "And Then There Were None",
+        "genre": "Mystery",
+        "price": 8.99,
+        "bookCover": "https://m.media-amazon.com/images/I/81B9LhCS2AL._AC_UF1000,1000_QL80_.jpg",
+        "authorId": 1
+    },
+    {
+        "isbn": "ckjgftwmp0000000000000001",
+        "title": "Beloved",
+        "genre": "Fiction",
+        "price": 12.99,
+        "bookCover": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Beloved_%281987_1st_ed_dust_jacket_cover%29.jpg",
+        "authorId": 2
+    },
+    {
+        "isbn": "ckjgfuomp0000000000000002",
+        "title": "The Bluest Eye",
+        "genre": "Fiction",
+        "price": 9.99,
+        "bookCover": "https://img1.od-cdn.com/ImageType-100/0027-1/%7BE4105596-12E1-46CF-847C-475F865ACD61%7DImg100.jpg",
+        "authorId": 2
+    },
+    {
+        "isbn": "cjhdj83qx0000f5ky4u80x4i9",
+        "title": "The Shining",
+        "genre": "Horror",
+        "price": 15.99,
+        "bookCover": "https://prodimage.images-bn.com/pimages/9780345806789_p0_v2_s1200x630.jpg",
+        "authorId": 3
+    },
+    {
+        "isbn": "cjhdj83qx0001f5kyt166gtx5",
+        "title": "It",
+        "genre": "Horror",
+        "price": 12.49,
+        "bookCover": "https://rukminisingh.files.wordpress.com/2017/10/19681642-a109-4aed-b38f-9fa391ed0ee6-it-big.png",
+        "authorId": 3
+    },
+    {
+        "isbn": "cjhdj83qx0002f5kytk9yhasy",
+        "title": "Pet Sematary",
+        "genre": "Horror",
+        "price": 11.99,
+        "bookCover": "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F6%2F2019%2F04%2Fpet-sematary-2-2000.jpg&w=1100&h=737&c=sc&poi=face&q=60",
+        "authorId": 3
+    }
+]

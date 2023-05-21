@@ -1,0 +1,20 @@
+    [
+        {
+            "id": 1,
+            "firstname": "Agatha",
+            "lastname": "Christie",
+            "dob": "1890-09-15T00:00:00.000Z"
+        },
+        {
+            "id": 2,
+            "firstname": "Toni",
+            "lastname": "Morrison",
+            "dob": "1931-02-18T00:00:00.000Z"
+        },
+        {
+            "id": 3,
+            "firstname": "Stephen",
+            "lastname": "King",
+            "dob": "1947-09-21T00:00:00.000Z"
+        }
+    ]
